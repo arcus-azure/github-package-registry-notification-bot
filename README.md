@@ -1,4 +1,3 @@
-# Arcus Template
-Template repository for new components in Arcus ecosystem.
+# GitHub Package Registry Bot for GitHub Pull Requests
 
-:warning: In order to finalize the setup, don't forget to run out [GitHub Repo Configurator](https://github.com/arcus-azure/arcus/tree/master/tools/github-repo-configurator).
+A bot to post comments on GitHub pull requests when a new NuGet package is pushed to GitHub Package Registry.
