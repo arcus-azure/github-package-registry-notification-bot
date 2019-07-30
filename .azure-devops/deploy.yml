@@ -1,0 +1,31 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/*
+pr: none
+pool:
+  name: Hosted Windows 2019 with VS2019
+variables:
+  GitHub.Bot.Name: 'arcus-automation'
+  LogicApp.Name: 'arcus-shared-notifications-github-package-registry'
+  Packages.Filter.Suffix: 'All'
+steps:
+- task: qetza.replacetokens.replacetokens-task.replacetokens@3
+  displayName: 'Replace tokens for "GitHub Package Registry Bot"'
+  inputs:
+    rootDirectory: src/
+    targetFiles: azuredeploy.parameters.json
+    actionOnMissing: fail
+
+- task: AzureResourceGroupDeployment@2
+  displayName: 'Deploy "GitHub Package Registry Bot"'
+  inputs:
+    azureSubscription: 'Azure - Codit-Arcus'
+    resourceGroupName: 'codit-arcus'
+    location: 'West Europe'
+    csmFile: src/azuredeploy.json
+    csmParametersFile: src/azuredeploy.parameters.json
