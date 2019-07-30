@@ -18,3 +18,6 @@ By default the Logic App will determine the PR ID given it assumes to have the `
 ![Overview](./media/schematic.png)
 
 If your pattern diverts from this pattern you can always tweak the bot and deploy that instead.
+
+# License Information
+This is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the web application. But you always need to state that Tom Kerkhove is the original author of this web application.
